@@ -1,28 +1,21 @@
-import React, { useMemo } from 'react';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-import { UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-wallets';
-import {
-    WalletModalProvider,
-    WalletDisconnectButton,
-    WalletMultiButton
+
+import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';import {
+    WalletModalProvider
 } from '@solana/wallet-adapter-react-ui';
-import { clusterApiUrl } from '@solana/web3.js';
 import './App.css'
+import '@solana/wallet-adapter-react-ui/styles.css';
+
+import Adapter from './components/Adapter';
+
 
 function App() {
-  const network = WalletAdapterNetwork.Devnet;
-  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
-
   
   return (
   <>
-   <ConnectionProvider endpoint={endpoint}>
+   <ConnectionProvider endpoint={'https://solana-devnet.g.alchemy.com/v2/K8uFHkLwqSo68gCqj-o0u-lahQC0mSH-'}>
             <WalletProvider wallets={[]} autoConnect>
                 <WalletModalProvider>
-                    <WalletMultiButton />
-                    <WalletDisconnectButton />
-                    { /* Your app's components go here, nested within the context providers. */ }
+                    <Adapter/>
                 </WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>
