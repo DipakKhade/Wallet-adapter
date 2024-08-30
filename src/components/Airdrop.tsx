@@ -14,9 +14,9 @@ async function airdrop(){
     }
 }
     return<>
-    <div>
-        <input type="number" onChange={(e)=>SetSolquantity(Number(e.target.value))} />
-        <button onClick={airdrop}>airdrop wallet</button>
+    <div className="flex flex-col space-y-4 p-4">
+        <input className="border border-slate-500" type="number" onChange={(e)=>SetSolquantity(Number(e.target.value))} />
+        <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none " onClick={airdrop}>airdrop wallet</button>
     </div>
     </>
 }
